@@ -1,0 +1,311 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		409A4757CE9C45C4F01B36EA /* ScoreTapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AFBD39D36DE5D75E8A6278 /* ScoreTapApp.swift */; };
+		4F59DE8D01647F24978455E2 /* MatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D75B765414F505F97E589B /* MatchView.swift */; };
+		5FAEE66CF267B66197F930D0 /* TiebreakViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2842E01ED268A82405146E /* TiebreakViewModel.swift */; };
+		DBD9784C6386D966E8779C07 /* TiebreakView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B424C52C3989AA4057A9C4B /* TiebreakView.swift */; };
+		E2C5593CCB04FD283D817CB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C7DE155F75172140899D32A /* Assets.xcassets */; };
+		E2FD822BEA4865969B87E59D /* MatchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E39FD336CB711297CAF206 /* MatchViewModel.swift */; };
+		E4103E81BD53688F4097A719 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07A17CAF7AA0110163EC5CE /* ContentView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		329E7EDB71EB9F01664E924C /* ScoreTap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScoreTap.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		33E39FD336CB711297CAF206 /* MatchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchViewModel.swift; sourceTree = "<group>"; };
+		3B424C52C3989AA4057A9C4B /* TiebreakView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiebreakView.swift; sourceTree = "<group>"; };
+		3E86F7671657C942BC576533 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4B2842E01ED268A82405146E /* TiebreakViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiebreakViewModel.swift; sourceTree = "<group>"; };
+		4C7DE155F75172140899D32A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		80AFBD39D36DE5D75E8A6278 /* ScoreTapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreTapApp.swift; sourceTree = "<group>"; };
+		93D75B765414F505F97E589B /* MatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchView.swift; sourceTree = "<group>"; };
+		C07A17CAF7AA0110163EC5CE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		280A7FD382EAFD08C3AB66C3 /* ScoreTap Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				4C7DE155F75172140899D32A /* Assets.xcassets */,
+				C07A17CAF7AA0110163EC5CE /* ContentView.swift */,
+				3E86F7671657C942BC576533 /* Info.plist */,
+				93D75B765414F505F97E589B /* MatchView.swift */,
+				33E39FD336CB711297CAF206 /* MatchViewModel.swift */,
+				80AFBD39D36DE5D75E8A6278 /* ScoreTapApp.swift */,
+				3B424C52C3989AA4057A9C4B /* TiebreakView.swift */,
+				4B2842E01ED268A82405146E /* TiebreakViewModel.swift */,
+			);
+			path = "ScoreTap Watch App";
+			sourceTree = "<group>";
+		};
+		57B1F5550405B89472240BE8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				329E7EDB71EB9F01664E924C /* ScoreTap.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		78058E2212C518C192E7B341 = {
+			isa = PBXGroup;
+			children = (
+				280A7FD382EAFD08C3AB66C3 /* ScoreTap Watch App */,
+				57B1F5550405B89472240BE8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2053F5A69B5265E1A55CFCCF /* ScoreTap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1E338AA8B6035D688904DF1 /* Build configuration list for PBXNativeTarget "ScoreTap" */;
+			buildPhases = (
+				5F76D045D4F7E59711F2D464 /* Sources */,
+				4FE5F45038091DB4721E1AEC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ScoreTap;
+			packageProductDependencies = (
+			);
+			productName = ScoreTap;
+			productReference = 329E7EDB71EB9F01664E924C /* ScoreTap.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A39EC1F433E6173B6DEE2F41 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+			};
+			buildConfigurationList = AD3D430B8D51F69C18284E7D /* Build configuration list for PBXProject "ScoreTap" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 78058E2212C518C192E7B341;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 57B1F5550405B89472240BE8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2053F5A69B5265E1A55CFCCF /* ScoreTap */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4FE5F45038091DB4721E1AEC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2C5593CCB04FD283D817CB1 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5F76D045D4F7E59711F2D464 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4103E81BD53688F4097A719 /* ContentView.swift in Sources */,
+				4F59DE8D01647F24978455E2 /* MatchView.swift in Sources */,
+				E2FD822BEA4865969B87E59D /* MatchViewModel.swift in Sources */,
+				409A4757CE9C45C4F01B36EA /* ScoreTapApp.swift in Sources */,
+				DBD9784C6386D966E8779C07 /* TiebreakView.swift in Sources */,
+				5FAEE66CF267B66197F930D0 /* TiebreakViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0299A1BB363F9FB37BC32443 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		374203CD35BDC2AD3E44CA92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = LNNPDUUN26;
+				INFOPLIST_FILE = "ScoreTap Watch App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.poulinhoo.ScoreTap;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+		99B5652C6DC0421A121F3C89 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		C17540032B2719C4E1212EB8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = LNNPDUUN26;
+				INFOPLIST_FILE = "ScoreTap Watch App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.poulinhoo.ScoreTap;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AD3D430B8D51F69C18284E7D /* Build configuration list for PBXProject "ScoreTap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				99B5652C6DC0421A121F3C89 /* Debug */,
+				0299A1BB363F9FB37BC32443 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D1E338AA8B6035D688904DF1 /* Build configuration list for PBXNativeTarget "ScoreTap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C17540032B2719C4E1212EB8 /* Debug */,
+				374203CD35BDC2AD3E44CA92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A39EC1F433E6173B6DEE2F41 /* Project object */;
+}
