@@ -9,11 +9,26 @@ final class TiebreakViewModel: ObservableObject {
     @Published private(set) var opponentPoints: Int = 0
     @Published private(set) var targetPoints: Int = 7
     @Published private(set) var winner: Player? = nil
+    @Published private(set) var canUndo: Bool = false
+    private let initialServer: Player = .player
 
     /// Called when someone wins the tiebreak (injected by MatchViewModel)
     var onFinish: ((Player) -> Void)?
 
     private var history: [(Int, Int, Int)] = []
+
+    // MARK: - Serve
+
+    var currentServer: Player {
+        let pointNumber = playerPoints + opponentPoints + 1
+        guard pointNumber > 1 else { return initialServer }
+        let group = (pointNumber - 2) / 2
+        return group % 2 == 0 ? opponent(of: initialServer) : initialServer
+    }
+
+    private func opponent(of player: Player) -> Player {
+        player == .player ? .opponent : .player
+    }
 
     // MARK: - Public API
 
@@ -29,6 +44,7 @@ final class TiebreakViewModel: ObservableObject {
 
         WKInterfaceDevice.current().play(.click)
         checkWin()
+        canUndo = true
     }
 
     func cycleTargetPoints() {
@@ -52,6 +68,7 @@ final class TiebreakViewModel: ObservableObject {
         opponentPoints = last.1
         targetPoints   = last.2
         winner         = nil
+        canUndo        = !history.isEmpty
         WKInterfaceDevice.current().play(.click)
     }
 
@@ -60,6 +77,7 @@ final class TiebreakViewModel: ObservableObject {
         opponentPoints = 0
         winner         = nil
         history        = []
+        canUndo        = false
         WKInterfaceDevice.current().play(.retry)
     }
 

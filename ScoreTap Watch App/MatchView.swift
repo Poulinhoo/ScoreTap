@@ -23,6 +23,7 @@ struct MatchView: View {
                     TapZone(
                         label: Player.player.label,
                         score: vm.playerPoints.display,
+                        isServing: vm.currentServer == .player,
                         gradient: LinearGradient(
                             colors: [Color.blue, Color(red: 0.1, green: 0.35, blue: 0.85)],
                             startPoint: .topLeading, endPoint: .bottomTrailing
@@ -34,6 +35,7 @@ struct MatchView: View {
                     TapZone(
                         label: Player.opponent.label,
                         score: vm.opponentPoints.display,
+                        isServing: vm.currentServer == .opponent,
                         gradient: LinearGradient(
                             colors: [Color(white: 0.25), Color(white: 0.15)],
                             startPoint: .topLeading, endPoint: .bottomTrailing
@@ -43,7 +45,7 @@ struct MatchView: View {
                     }
                 }
                 .frame(maxHeight: .infinity)
-                
+
             case .tiebreak:
                 VStack(spacing: 4) {
                     HStack(spacing: 4) {
@@ -94,6 +96,7 @@ struct MatchView: View {
                     TapZone(
                         label: Player.player.label,
                         score: "\(vm.tiebreakPlayerPoints)",
+                        isServing: vm.currentServer == .player,
                         gradient: LinearGradient(
                             colors: [Color.orange, Color(red: 0.85, green: 0.45, blue: 0.05)],
                             startPoint: .topLeading, endPoint: .bottomTrailing
@@ -105,6 +108,7 @@ struct MatchView: View {
                     TapZone(
                         label: Player.opponent.label,
                         score: "\(vm.tiebreakOpponentPoints)",
+                        isServing: vm.currentServer == .opponent,
                         gradient: LinearGradient(
                             colors: [Color(white: 0.25), Color(white: 0.15)],
                             startPoint: .topLeading, endPoint: .bottomTrailing
@@ -128,6 +132,9 @@ struct MatchView: View {
                 Button(action: vm.undo) {
                     Image(systemName: "arrow.uturn.backward")
                 }
+                .disabled(!vm.canUndo)
+                .opacity(vm.canUndo ? 1 : 0.3)
+                .accessibilityLabel("Annuler le dernier point")
             }
         }
     }
@@ -149,10 +156,17 @@ private struct MiniScoreboardView: View {
                     Text("Sets:")
                         .font(.system(.caption2, design: .rounded))
                         .foregroundStyle(.secondary)
-                    Text("\(playerSets) - \(opponentSets)")
+                    Text("\(playerSets)")
                         .font(.system(.caption2, design: .rounded))
                         .bold()
-                        .foregroundStyle(.yellow)
+                        .foregroundStyle(.blue)
+                    Text("-")
+                        .font(.system(.caption2, design: .rounded))
+                        .foregroundStyle(.secondary)
+                    Text("\(opponentSets)")
+                        .font(.system(.caption2, design: .rounded))
+                        .bold()
+                        .foregroundStyle(.white)
                 }
                 
                 Spacer()
@@ -210,17 +224,25 @@ private struct MiniScoreboardView: View {
 private struct TapZone: View {
     let label: String
     let score: String
+    var isServing: Bool = false
     let gradient: LinearGradient
     let onTap: () -> Void
 
     var body: some View {
         Button(action: onTap) {
             VStack(spacing: 2) {
-                Text(label)
-                    .font(.system(.caption2, design: .rounded))
-                    .bold()
-                    .foregroundStyle(.white.opacity(0.8))
-                
+                HStack(spacing: 3) {
+                    if isServing {
+                        Image(systemName: "tennisball.fill")
+                            .font(.system(size: 8))
+                            .foregroundStyle(.yellow)
+                    }
+                    Text(label)
+                        .font(.system(.caption2, design: .rounded))
+                        .bold()
+                        .foregroundStyle(.white.opacity(0.8))
+                }
+
                 Text(score)
                     .font(.system(.title2, design: .rounded))
                     .bold()
@@ -232,6 +254,8 @@ private struct TapZone: View {
             .shadow(color: .black.opacity(0.3), radius: 3, x: 0, y: 2)
         }
         .buttonStyle(.plain)
+        .accessibilityLabel(isServing ? "\(label), score \(score), au service" : "\(label), score \(score)")
+        .accessibilityHint("Ajouter un point")
     }
 }
 

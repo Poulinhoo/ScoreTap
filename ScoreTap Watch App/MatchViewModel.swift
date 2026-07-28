@@ -89,8 +89,35 @@ final class MatchViewModel: ObservableObject {
     @Published private(set) var tiebreakOpponentPoints: Int = 0
     @Published private(set) var tiebreakTargetPoints: Int = 7
 
+    // Serve
+    @Published private(set) var server: Player = .player
+    private var tiebreakInitialServer: Player = .player
+
     // Undo history
+    @Published private(set) var canUndo: Bool = false
     private var history: [Snapshot] = []
+
+    // MARK: - Serve
+
+    var currentServer: Player {
+        switch matchState {
+        case .playing, .finished:
+            return server
+        case .tiebreak:
+            let pointNumber = tiebreakPlayerPoints + tiebreakOpponentPoints + 1
+            return serverForTiebreakPoint(pointNumber)
+        }
+    }
+
+    private func serverForTiebreakPoint(_ pointNumber: Int) -> Player {
+        guard pointNumber > 1 else { return tiebreakInitialServer }
+        let group = (pointNumber - 2) / 2
+        return group % 2 == 0 ? opponent(of: tiebreakInitialServer) : tiebreakInitialServer
+    }
+
+    private func toggleServer() {
+        server = opponent(of: server)
+    }
 
     // MARK: - Public API
 
@@ -125,6 +152,7 @@ final class MatchViewModel: ObservableObject {
     func undo() {
         guard let snapshot = history.popLast() else { return }
         restore(from: snapshot)
+        canUndo = !history.isEmpty
         // Play subtle click on undo
         WKInterfaceDevice.current().play(.click)
     }
@@ -141,8 +169,11 @@ final class MatchViewModel: ObservableObject {
         tiebreakPlayerPoints = 0
         tiebreakOpponentPoints = 0
         tiebreakTargetPoints = 7
+        server        = .player
+        tiebreakInitialServer = .player
         history       = []
-        
+        canUndo       = false
+
         WKInterfaceDevice.current().play(.retry)
     }
 
@@ -182,10 +213,11 @@ final class MatchViewModel: ObservableObject {
     private func winGame(for winner: Player) {
         resetPoints()
         incrementGames(for: winner)
-        
+        toggleServer()
+
         // Play game win haptic
         WKInterfaceDevice.current().play(.directionUp)
-        
+
         evaluateSetEnd()
     }
 
@@ -196,6 +228,7 @@ final class MatchViewModel: ObservableObject {
         if p == 6 && o == 6 {
             // Start tiebreak
             matchState = .tiebreak
+            tiebreakInitialServer = server
             WKInterfaceDevice.current().play(.notification)
         } else if p >= 6 && (p - o) >= 2 {
             recordSetWin(for: .player)
@@ -225,11 +258,13 @@ final class MatchViewModel: ObservableObject {
         if p >= target && (p - o) >= 2 {
             playerGames = 7
             opponentGames = 6
+            toggleServer()
             recordSetWin(for: .player)
             resetTiebreakPoints()
         } else if o >= target && (o - p) >= 2 {
             playerGames = 6
             opponentGames = 7
+            toggleServer()
             recordSetWin(for: .opponent)
             resetTiebreakPoints()
         }
@@ -311,6 +346,8 @@ final class MatchViewModel: ObservableObject {
         let tiebreakPlayerPoints: Int
         let tiebreakOpponentPoints: Int
         let tiebreakTargetPoints: Int
+        let server: Player
+        let tiebreakInitialServer: Player
     }
 
     private func saveSnapshot() {
@@ -325,8 +362,11 @@ final class MatchViewModel: ObservableObject {
             matchState:             matchState,
             tiebreakPlayerPoints:   tiebreakPlayerPoints,
             tiebreakOpponentPoints: tiebreakOpponentPoints,
-            tiebreakTargetPoints:   tiebreakTargetPoints
+            tiebreakTargetPoints:   tiebreakTargetPoints,
+            server:                 server,
+            tiebreakInitialServer:  tiebreakInitialServer
         ))
+        canUndo = true
     }
 
     private func restore(from snapshot: Snapshot) {
@@ -341,5 +381,7 @@ final class MatchViewModel: ObservableObject {
         tiebreakPlayerPoints   = snapshot.tiebreakPlayerPoints
         tiebreakOpponentPoints = snapshot.tiebreakOpponentPoints
         tiebreakTargetPoints   = snapshot.tiebreakTargetPoints
+        server                 = snapshot.server
+        tiebreakInitialServer  = snapshot.tiebreakInitialServer
     }
 }
